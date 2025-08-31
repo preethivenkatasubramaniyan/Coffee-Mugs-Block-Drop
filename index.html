@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Coffee Mugs — Block Drop</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="favicon.png">
+  <meta name="theme-color" content="#2b1740">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Coffee Mugs — Block Drop</h1>
+      <div class="controls">
+        <button id="mute">🔊</button>
+        <button id="start">Start</button>
+      </div>
+    </header>
+    <main>
+      <canvas id="board" width="300" height="600" aria-label="Tetris-like board"></canvas>
+      <aside>
+        <div class="panel"><h3>Next</h3><canvas id="next" width="120" height="120"></canvas></div>
+        <div class="panel"><h3>Score</h3><div id="score">0</div></div>
+        <div class="panel"><h3>Lines</h3><div id="lines">0</div></div>
+        <div class="panel"><h3>Level</h3><div id="level">1</div></div>
+        <div class="panel"><h3>Controls</h3><div>← → : Move<br>↑ : Rotate<br>↓ : Soft drop<br>Space : Hard drop</div></div>
+      </aside>
+    </main>
+    <footer><small>Original coffeehouse aesthetic — procedurally generated assets.</small></footer>
+  </div>
+
+  <audio id="bg" src="assets/audio/bg_loop.wav" loop preload="auto"></audio>
+  <audio id="s_line" src="assets/audio/line.wav" preload="auto"></audio>
+  <audio id="s_rot" src="assets/audio/rotate.wav" preload="auto"></audio>
+  <audio id="s_drop" src="assets/audio/drop.wav" preload="auto"></audio>
+
+  <script src="app.js"></script>
+  <script>
+    if('serviceWorker' in navigator){
+      window.addEventListener('load', ()=> navigator.serviceWorker.register('sw.js'));
+    }
+  </script>
+</body>
+</html>
